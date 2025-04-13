@@ -4,54 +4,110 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  background: #0a0a23;
+  color: white;
+  overflow: hidden;
+}
+
 .container {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  gap: 20px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-in-out;
 }
-textarea {
-  width: 60%;
-  margin: 20px 0;
-  padding: 10px;
-  border-radius: 10px;
-  border: 2px solid #ccc;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  resize: none;
-  height: 350px;
-  background-color: wheat;
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-h1:last-of-type {
-  background: linear-gradient(to right, #031e75, #9b7ebd); /* التدرج اللوني */
+
+.gradient-text {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #4f46e5, #3b82f6, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 10px 0;
-  text-align: center; /* إذا كنت تريد النص في المنتصف */
+  animation: pulse 2s infinite, float 3s ease-in-out infinite;
 }
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+textarea {
+  width: 80%;
+  max-width: 500px;
+  height: 150px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1e1e40;
+  color: white;
+  resize: none;
+  animation: fadeUp 1s ease-in-out;
+}
+textarea:focus {
+  box-shadow: 0 0 10px rgb(59, 0, 219);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 button {
-  background-color: #ff7e5f;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 10px 30px;
+  background-color: #3b82f6;
   border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 16px;
-  width: 60%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  animation: fadeUp 1.2s ease-in-out;
 }
+
 button:hover {
-  background-color: #feb47b;
-  color: black;
+  background-color: #60a5fa;
+  color: #000;
+  transform: scale(1.05);
 }

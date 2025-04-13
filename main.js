@@ -1,6 +1,12 @@
 let speech = new SpeechSynthesisUtterance();
-/*new SpeechSynthesisUtterance() => بتحول الكلام ل صوت   */
-document.querySelector("button").addEventListener("click", () => { /* لما حد يدوس عليك اعمل كذا */
-  speech.text = document.querySelector("textarea").value; /* الكلام اللي مكتوب ف الصندوق  */
-  window.speechSynthesis.speak(speech); /* الكلام اللي هيتقال */
+
+document.querySelector("button").addEventListener("click", () => {
+  const text = document.querySelector("textarea").value;
+  speech.text = text;
+
+  // لو الكلام فيه حروف عربي، خليه ينطقه بالعربي، غير كده انجليزي
+  const isArabic = /[\u0600-\u06FF]/.test(text);
+  speech.lang = isArabic ? "ar-EG" : "en-US";
+
+  window.speechSynthesis.speak(speech);
 });
